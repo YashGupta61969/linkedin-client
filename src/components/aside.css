@@ -1,0 +1,70 @@
+.aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    max-width: 20%;
+    min-width: 28rem;
+    margin-left: 5rem;
+    box-shadow: 0 0 5px var(--primary-blue);
+    padding: 3rem 0;
+    border-radius: 0.5rem;
+}
+
+.profilePic{
+    background: #b8b8b8;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+}
+
+.avatar{
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.aside .name {
+    font-size: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:100 ;
+}
+
+.about{
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0 1rem;
+}
+
+.about p{
+    text-align: center;
+}
+
+.followings{
+    display: flex;
+    margin-top: 2rem;
+}
+
+.followings p{
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.skills{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills p{
+    font-size: 1.5rem;
+    padding: 0.6rem;
+
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 1rem;
+}

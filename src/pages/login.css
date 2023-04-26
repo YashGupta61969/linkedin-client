@@ -1,0 +1,114 @@
+.authPage {
+    padding: 2rem 0 5rem 10rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5rem;
+}
+
+.header a {
+    outline: none;
+    background: var(--white);
+    padding: 1.2rem 2rem;
+    border-radius: 3rem;
+    border: 1px solid var(--primary-blue);
+    font-size: 1.7rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.header a:hover {
+    color: white;
+    background: var(--primary-blue);
+}
+
+.tagline {
+    margin-top: 7rem;
+    font-size: 4.8rem;
+    font-weight: 100;
+    color: var(--brown-text);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+.authForm{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid var(--black); */
+    max-width: 50rem;
+
+}
+
+.authForm label{
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.authForm input{
+    padding: 1.6rem 1rem;
+    margin-bottom: 3rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--gray);
+    font-size: 1.6rem;
+}
+
+.authForm button{
+    font-size: 1.8rem;
+    padding: 1.4rem 0;
+    background: var(--primary-blue);
+    outline: none;
+    border: 0;
+    border-radius: 0.6rem;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.authForm button:hover {
+    background: #2391ff;
+}
+
+.authWrapper{
+    display: flex;
+}
+
+.authWrapper img{
+    object-fit: contain;
+    width: 66rem;
+}
+
+.loginImg{
+    margin-top: 3rem;
+}
+
+
+.signupUserImage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.signupUserImage label, .signupUserImage p{
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signupUserImage p{
+    color: red;
+}
+
+.signupUserImage img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+}

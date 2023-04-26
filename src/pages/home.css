@@ -1,0 +1,26 @@
+.mainHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 5rem;
+    margin-bottom: 3rem;
+}
+
+.mainHeader button {
+    outline: none;
+    background: var(--white);
+    padding: 1.2rem 2rem;
+    border-radius: 3rem;
+    border: 1px solid var(--primary-blue);
+    font-size: 1.7rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.mainHeader button:hover {
+    color: white;
+    background: var(--primary-blue);
+}
