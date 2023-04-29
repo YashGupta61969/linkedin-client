@@ -5,24 +5,21 @@
     height: fit-content;
     max-width: 20%;
     min-width: 28rem;
-    margin-left: 5rem;
+    margin-left: 4rem;
     box-shadow: 0 0 5px var(--primary-blue);
     padding: 3rem 0;
     border-radius: 0.5rem;
 }
 
 .profilePic{
-    background: #b8b8b8;
     border-radius: 50%;
-    width: 10rem;
-    height: 10rem;
     margin-bottom: 1rem;
 }
 
-.avatar{
-    height: 100%;
-    object-fit: contain;
+.profilePic img{
     border-radius: 50%;
+    width: 11rem;
+    height: 11rem;
 }
 
 .aside .name {

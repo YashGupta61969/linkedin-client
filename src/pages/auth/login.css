@@ -1,47 +1,26 @@
-.authPage {
-    padding: 2rem 0 5rem 10rem;
-}
-
-.header {
+.container{
+    margin: 0 3rem;
     display: flex;
-    justify-content: space-between;
-    padding-right: 5rem;
-}
-
-.header a {
-    outline: none;
-    background: var(--white);
-    padding: 1.2rem 2rem;
-    border-radius: 3rem;
-    border: 1px solid var(--primary-blue);
-    font-size: 1.7rem;
-    color: var(--primary-blue);
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-}
-
-.header a:hover {
-    color: white;
-    background: var(--primary-blue);
+    padding-bottom: 3rem;
 }
 
 .tagline {
     margin-top: 7rem;
-    font-size: 4.8rem;
+    font-size: 4.5rem;
     font-weight: 100;
     color: var(--brown-text);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+.left{
+    width: 45%;
 }
 
 .authForm{
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
-    /* border: 1px solid var(--black); */
-    max-width: 50rem;
-
+    width: 100%;
 }
 
 .authForm label{
@@ -73,22 +52,26 @@
     background: #2391ff;
 }
 
-.authWrapper{
-    display: flex;
-}
-
-.authWrapper img{
-    object-fit: contain;
-    width: 66rem;
-}
-
 .loginImg{
-    margin-top: 3rem;
+    position: fixed;
+    right: 0;
+    top: 8rem;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 55%;
 }
 
+.loginImg img{
+    width:  calc(100% + 80px);
+    position: relative;
+    right: 5rem;
+}
+
+/* -------------SIGNUP---------------- */
 
 .signupUserImage{
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,6 +79,12 @@
     margin-bottom: 2rem;
 }
 
+.signupUserImage img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+} 
+ 
 .signupUserImage label, .signupUserImage p{
     margin-top: 2rem;
     font-size: 1.6rem;
@@ -105,10 +94,4 @@
 
 .signupUserImage p{
     color: red;
-}
-
-.signupUserImage img{
-    width: 15rem;
-    height: 15rem;
-    border-radius: 50%;
 }

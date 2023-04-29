@@ -1,0 +1,34 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  border: 1px solid var(--primary-blue);
+  background: white;
+  color: var(--primary-blue);
+  font-weight: 800;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.buttonBig{
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    border-radius: 3rem;
+    border: 1.4px solid var(--primary-blue);
+}
+
+.button:hover {
+  color: white;
+  background: var(--primary-blue);
+}
+
+.button:hover .followIcon{
+  color: var(--white);
+}
+
+.followIcon{
+  color: var(--primary-blue);
+  margin-right: 1rem;
+}

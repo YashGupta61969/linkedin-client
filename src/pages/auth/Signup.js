@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../assets/logos/LI-Logo.png'
-import png from '../assets/logos/login.png'
-import avatar from '../assets/logos/user.png'
-import { Link } from 'react-router-dom'
+import png from '../../assets/logos/login.png'
+import avatar from '../../assets/logos/user.png'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import Header from '../../components/header/Header'
+import { signup } from '../../services/api'
 
-function Signup() {
+const Signup = () => {
   const navigate = useNavigate()
   const { token } = useSelector(state => state.user)
 
@@ -38,50 +38,34 @@ function Signup() {
   const onPasswordChange = (e) => setPassword(e.target.value);
   const onAboutChange = (e) => setAbout(e.target.value);
 
-  const removeImage = () =>{
-      setImage('')
-      setImagePreview('')
+  const removeImage = () => {
+    setImage('')
+    setImagePreview('')
   }
 
   const submit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData()
-    formData.append('name',name)
-    formData.append('email',email)
-    formData.append('password',password)
-    formData.append('about',about)
-    formData.append('media',image)
+    const response = await signup(name, email, password, about, image)
+    const data = await response.json();
 
-    const json = await fetch('http://localhost:8000/signup', {
-      method: 'POST',
-      body: formData
-    })
-    const response = await json.json();
-
-    if (json.status === 200) {
+    if (response.status === 200) {
       navigate('/login')
     } else {
-      alert(response.message)
+      alert(data.message)
     }
   }
 
   return (
-    <div className='authPage'>
-      <header className='header'>
-        <img src={logo} alt='Logo' style={{ objectFit: 'contain', width: '16rem' }} />
-        <Link to={'/login'}>Login</Link>
-      </header>
-
-      <div className='authWrapper'>
-        <div>
+    <>
+      <Header />
+      <div className='container'>
+        <div className='left'>
           <h1 className='tagline'>Welcome to your <br /> professional community</h1>
 
-          <div className='authForm'>
-
+          <form onSubmit={submit} className='authForm'>
             <div className='signupUserImage'>
               <img src={imagePreview || avatar} alt='' />
-              
               {
                 imagePreview ? <p onClick={removeImage}>Remove Image</p> : <label htmlFor='userImg'>Upload Image</label>
               }
@@ -101,15 +85,14 @@ function Signup() {
             <input type='text' value={about} onChange={onAboutChange} placeholder='Tell Us About Yourself' />
 
             <button onClick={submit}>Sign Up</button>
-          </div>
+          </form>
+
         </div>
 
-        <div className='loginImg'>
-          <img src={png} alt='logo' />
-        </div>
+        <img src={png} alt='logo' className='loginImg' />
       </div>
 
-    </div>
+    </>
   )
 }
 

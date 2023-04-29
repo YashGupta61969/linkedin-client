@@ -1,20 +1,21 @@
 import { useDispatch } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
 import Home from "./pages/Home";
-import { addToken, addUser } from "./store/slices/userSlice";
+import { addUser } from "./store/slices/userSlice";
 import { useEffect } from "react";
+import PostPage from "./pages/post/PostPage";
+import Signup from "./pages/auth/Signup";
+import Login from "./pages/auth/Login";
 
 function App() {
   const dispatch = useDispatch();
-  const user = localStorage.getItem('user');
+  const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
-    if (user) {
+    if (user?.token) {
       dispatch(addUser(user))
     }
-  }, [user])
+  }, [user?.token])
 
   const router = createBrowserRouter([
     {
@@ -29,7 +30,12 @@ function App() {
       path: '/signup',
       element: <Signup />
     },
-  ])
+    {
+      path: '/post/:id',
+      element: <PostPage />
+    },
+  ]);
+  
   return (
     <RouterProvider router={router} />
   );

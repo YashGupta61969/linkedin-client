@@ -1,14 +1,14 @@
 import React from 'react'
-import avatar from '../assets/logos/user.png'
+import avatar from '../../assets/logos/user.png'
 
 import './aside.css'
 
-function Aside({ user }) {
+const Aside = ({ user }) => {
 
   return (
     <div className='aside'>
       <div className='profilePic'>
-        <img src={user.image || avatar} className='avatar' />
+        <img src={user.image || avatar} />
       </div>
       <p className='name'>{user.name}</p>
 
@@ -23,7 +23,7 @@ function Aside({ user }) {
       </div>
 
       {user.skills?.length ? <>
-      <strong style={{ marginTop: '2rem', fontSize: '2rem', fontWeight: 300 }}>Skills</strong>
+        <strong style={{ marginTop: '2rem', fontSize: '2rem', fontWeight: 300 }}>Skills</strong>
 
         <div className='skills'>
           <p>React Js</p>

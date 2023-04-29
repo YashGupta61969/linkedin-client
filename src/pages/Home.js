@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import logo from '../assets/logos/LI-Logo.png'
-import './home.css'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import avatar from '../assets/logos/user.png'
-import { removeUser } from '../store/slices/userSlice'
-import Aside from '../components/Aside'
-import Main from '../components/Main'
+import Header from '../components/header/Header'
+import Aside from '../components/aside/Aside'
+import Main from '../components/main/Main'
 
-function Home() {
-
-  const dispatch = useDispatch()
-  const {user} = useSelector(state => state.user)
+const Home = () => {
+  const { user } = useSelector(state => state.user)
   const navigate = useNavigate();
-
-  const onLogout = () => dispatch(removeUser());
 
   useEffect(() => {
     if (!user.token) {
@@ -24,14 +18,10 @@ function Home() {
 
   return (
     <div className='page'>
-      <header className='mainHeader'>
-        <img src={logo} alt='Logo' style={{ objectFit: 'contain', width: '16rem' }} />
-        <button onClick={onLogout}>Log Out</button>
-      </header>
-
+      <Header />
       <div style={{ display: 'flex' }}>
-        <Aside user={user}/>
-        <Main image={user.image || avatar}/>
+        <Aside user={user} />
+        <Main image={user.image || avatar} />
       </div>
     </div>
   )
