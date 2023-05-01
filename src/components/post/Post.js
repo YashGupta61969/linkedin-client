@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { FaRegComment } from 'react-icons/fa'
 import { AiOutlineLike, AiFillLike } from 'react-icons/ai'
@@ -7,8 +7,10 @@ import { addLike, follow, removeLike, unfollow } from '../../services/api'
 import avatar from '../../assets/logos/user.png'
 import './post.css'
 import Button from '../button/Button'
+import { addUser } from '../../store/slices/userSlice';
 
 const Post = ({ item }) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useSelector(state => state.user)
     const [liked, setLiked] = useState(item.likedBy.find(el => el === user._id))
@@ -31,6 +33,8 @@ const Post = ({ item }) => {
             await unfollow(user._id, item.author._id)
         } else {
            const data = await follow(user._id, item.author._id)
+           localStorage.setItem('user',JSON.stringify(data))
+           dispatch(addUser(data))
         }
     }
 

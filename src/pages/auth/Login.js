@@ -26,16 +26,12 @@ const Login = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-
-    const response = await login(email, password)
-    const data = await response.json();
-
-    if (response.status === 200) {
+    const [data, status] = await login(email, password);
+    if (status === 200) {
       const dataToStore = {
         ...data.response,
         token: data.token
       }
-
       localStorage.setItem('user', JSON.stringify(dataToStore))
       dispatch(addUser(dataToStore))
       navigate('/')

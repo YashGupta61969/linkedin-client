@@ -8,7 +8,10 @@ export const login = async (email, password) => {
             email, password
         })
     })
-    return response;
+    const data = await response.json()
+    const status = response.status;
+
+    return [data, status];
 }
 
 export const signup = async (name, email, password, about, image) => {
@@ -23,7 +26,10 @@ export const signup = async (name, email, password, about, image) => {
         method: 'POST',
         body: formData
     })
-    return response;
+    const data = await response.json()
+    const status = response.status;
+
+    return [data, status];
 }
 
 export const getAllPosts = async () => {
@@ -62,7 +68,7 @@ export const addPost = async (authorId, caption, image) => {
 }
 
 export const follow = async (currentUserId, otherUserId) => {
-   const response = await fetch('http://localhost:8000/follow', {
+    const response = await fetch('http://localhost:8000/follow', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

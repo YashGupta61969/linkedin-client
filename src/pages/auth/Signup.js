@@ -45,11 +45,8 @@ const Signup = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-
-    const response = await signup(name, email, password, about, image)
-    const data = await response.json();
-
-    if (response.status === 200) {
+    const [data, status] = await signup(name, email, password, about, image)
+    if (status === 200) {
       navigate('/login')
     } else {
       alert(data.message)

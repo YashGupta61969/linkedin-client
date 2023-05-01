@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import PostPage from "./pages/post/PostPage";
 import Signup from "./pages/auth/Signup";
 import Login from "./pages/auth/Login";
+import Myprofile from "./pages/profile/Myprofile";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,10 @@ function App() {
     {
       path: '/post/:id',
       element: <PostPage />
+    },
+    {
+      path: '/myprofile',
+      element: <Myprofile />
     },
   ]);
   

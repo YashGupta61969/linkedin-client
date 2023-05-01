@@ -1,10 +1,11 @@
 import React from 'react'
 import avatar from '../../assets/logos/user.png'
-
 import './aside.css'
+import Button from '../button/Button'
+import { useNavigate } from 'react-router-dom'
 
 const Aside = ({ user }) => {
-
+  const navigate = useNavigate()
   return (
     <div className='aside'>
       <div className='profilePic'>
@@ -33,6 +34,8 @@ const Aside = ({ user }) => {
           <p>My SQL</p>
         </div>
       </> : null}
+
+      <Button text='View Profile' onClick={()=>navigate('/myprofile')}/>
     </div>
   )
 }
